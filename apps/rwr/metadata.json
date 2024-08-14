@@ -9,6 +9,6 @@
     "type": "app",
     "tags": "tool,timer,sports",
     "supports": ["BANGLEJS2"],
-    "readme": "README.md"
+    "readme": "README.md",
     "allow_emulator": true
 }
