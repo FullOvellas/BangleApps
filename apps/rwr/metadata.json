@@ -1,11 +1,14 @@
 {
     "id": "rwr",
     "name": "Reps Work Rest",
+    "shortName": "RWR",
     "version": "0.1.0",
     "description": "Allows for setting up a timed workout by choosing a number of repetitions and the amount of work/rest time for each of them.",
     "icon": "app.png",
-    "type": "app",
-    "tags": "timer,sports",
-    "readme": "README.md",
     "screenshots": [{"url": "screeshot1.png"},{"url": "screeshot2.png"},{"url": "screeshot3.png"}]
+    "type": "app",
+    "tags": "tool,timer,sports",
+    "supports": ["BANGLEJS2"],
+    "readme": "README.md"
+    "allow_emulator": true
 }
