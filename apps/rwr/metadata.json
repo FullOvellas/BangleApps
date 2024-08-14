@@ -8,7 +8,7 @@
     "screenshots": [{"url": "screeshot1.png"},{"url": "screeshot2.png"},{"url": "screeshot3.png"}],
     "type": "app",
     "tags": "tool,timer,sports",
-    "supports": ["BANGLEJS2"],
+    "supports" : ["BANGLEJS2"],
     "readme": "README.md",
     "allow_emulator": true,
     "storage": [
