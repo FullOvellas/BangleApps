@@ -6,7 +6,6 @@
     "icon": "app.png",
     "type": "app",
     "tags": "timer,sports",
-    "supports": ["BANGLEJS2"],
     "readme": "README.md",
     "screenshots": [{"url": "screeshot1.png"},{"url": "screeshot2.png"},{"url": "screeshot3.png"}]
 }
