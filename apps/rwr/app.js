@@ -11,6 +11,7 @@
     g.setFontAlign(0, 0);
     g.setFont("Vector", 25);
     g.drawString(msg, g.getWidth() / 2, 10);
+    g.drawString(`Remaining: ${currReps}`, g.getWidth() / 2, g.getHeight() - 10)
     g.setFont("Vector", 80);
     g.drawString(num, g.getWidth()/2 + 5, g.getHeight()/2 + 10);
   };
