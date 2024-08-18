@@ -61,16 +61,12 @@
     drawParameterScreen("work", work);
   };
   
-  const sleep = function(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  };
-  
   const countDown = function() {
     if (currWork === 0 && currRest === 0) {
       currWork = work;
       currRest = rest;
       currReps--;
-      Bangle.buzz(80, 0.8);
+      Bangle.buzz(80);
       if (currReps === 0) {
         new Promise(() => setTimeout(() => Bangle.buzz(40), 200)).then(() => Bangle.buzz(80));
         clearInterval(countDownInterval);
@@ -80,7 +76,7 @@
       }
     } else if (currWork === 0) {
       if (currRest === rest) {
-        Bangle.buzz(80, 0.8);
+        Bangle.buzz(80);
       }
       drawTimerScreen("resting", currRest--);
     } else {
