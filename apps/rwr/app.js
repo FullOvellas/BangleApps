@@ -37,6 +37,7 @@
       currRest = rest;
       currReps--;
       Bangle.buzz(80);
+      Bangle.buzz(80);
       if (currReps === 0) {
         new Promise(() => setTimeout(() => Bangle.buzz(40), 200)).then(() => Bangle.buzz(80));
         clearInterval(countDownInterval);
@@ -46,6 +47,7 @@
       }
     } else if (currWork === 0) {
       if (currRest === rest) {
+        Bangle.buzz(80);
         Bangle.buzz(80);
       }
       drawTimerScreen("resting", currRest--);
