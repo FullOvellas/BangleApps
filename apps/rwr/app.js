@@ -31,46 +31,12 @@
     drawControls();
   };
   
-  const incrementAndDrawReps = function() {
-    reps++;
-    drawParameterScreen("reps", reps);
-  };
-  
-  const incrementAndDrawWork = function() {
-    work++;
-    drawParameterScreen("work", work);
-  };
-  
-  const incrementAndDrawRest = function() {
-    rest++;
-    drawParameterScreen("rest", rest);
-  };
-  
-  const decrementAndDrawReps = function() {
-    reps--;
-    drawParameterScreen("reps", reps);
-  };
-  
-  const decrementAndDrawRest = function() {
-    rest--;
-    drawParameterScreen("rest", rest);
-  };
-  
-  const decrementAndDrawWork = function() {
-    work--;
-    drawParameterScreen("work", work);
-  };
-  
-  const sleep = function(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  };
-  
   const countDown = function() {
     if (currWork === 0 && currRest === 0) {
       currWork = work;
       currRest = rest;
       currReps--;
-      Bangle.buzz(80, 0.8);
+      Bangle.buzz(80);
       if (currReps === 0) {
         new Promise(() => setTimeout(() => Bangle.buzz(40), 200)).then(() => Bangle.buzz(80));
         clearInterval(countDownInterval);
@@ -80,7 +46,7 @@
       }
     } else if (currWork === 0) {
       if (currRest === rest) {
-        Bangle.buzz(80, 0.8);
+        Bangle.buzz(80);
       }
       drawTimerScreen("resting", currRest--);
     } else {
@@ -104,17 +70,17 @@
     
     Bangle.on("drag", (event) => {
       if (event.b && event.dy < 0) {
-        incrementAndDrawRest();
+        drawParameterScreen("rest", ++rest);
       } else if (event.b && event.dy > 0 && rest > 1) {
-        decrementAndDrawRest();
+        drawParameterScreen("rest", --rest);
       }
     });
     
     Bangle.on("touch", (btn, touch) => {
       if (touch.y < g.getHeight() / 2 - 30) {
-        incrementAndDrawRest();
+        drawParameterScreen("rest", ++rest);
       } else if (touch.y > g.getHeight() / 2 + 40) {
-        decrementAndDrawRest();
+        drawParameterScreen("rest", --rest);
       } else if (touch.y >= g.getHeight() / 2 - 30 && touch.y <= g.getHeight() / 2 + 40) {
         doTheThing(reps, work, rest);
       }
@@ -128,17 +94,17 @@
     
     Bangle.on("drag", (event) => {
       if (event.b && event.dy < 0) {
-        incrementAndDrawWork();
+        drawParameterScreen("work", ++work);
       } else if (event.b && event.dy > 0 && work > 1) {
-        decrementAndDrawWork();
+        drawParameterScreen("work", --work);
       }
     });
     
     Bangle.on("touch", (btn, touch) => {
       if (touch.y < g.getHeight() / 2 - 30) {
-        incrementAndDrawWork();
+        drawParameterScreen("work", ++work);
       } else if (touch.y > g.getHeight() / 2 + 40) {
-        decrementAndDrawWork();
+        drawParameterScreen("work", --work);
       } else if (touch.y >= g.getHeight() / 2 - 30 && touch.y <= g.getHeight() / 2 + 40) {
         restScreen();
       }
@@ -152,17 +118,17 @@
 
     Bangle.on("drag", (event) => {
       if (event.b && event.dy < 0) {
-        incrementAndDrawReps();
+        drawParameterScreen("reps", ++reps);
       } else if (event.b && event.dy > 0 && reps > 1) {
-        decrementAndDrawReps();
+        drawParameterScreen("reps", --reps);
       }
     });
     
     Bangle.on("touch", (btn, touch) => {
       if (touch.y < g.getHeight() / 2 - 30) {
-        incrementAndDrawReps();
+        drawParameterScreen("reps", ++reps);
       } else if (touch.y > g.getHeight() / 2 + 40) {
-        decrementAndDrawReps();
+        drawParameterScreen("reps", --reps);
       } else if (touch.y >= g.getHeight() / 2 - 30 && touch.y <= g.getHeight() / 2 + 40) {
         workScreen();
       }
